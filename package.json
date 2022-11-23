@@ -17,7 +17,6 @@
     "firebase": "^9.10.0",
     "font-awesome": "^4.7.0",
     "ifsc": "^2.0.6",
-    "jquery": "^3.6.1",
     "rc-time-picker": "^3.7.3",
     "react": "^17.0.1",
     "react-big-calendar": "^0.40.1",
