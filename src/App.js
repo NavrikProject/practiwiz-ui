@@ -25,7 +25,7 @@ const App = () => {
   const { isLoading } = useSelector((state) => state.loading);
   return (
     <>
-      {isLoading ? <LoadingSpinner /> : null}
+      {isLoading ? <LoadingSpinner /> : null} 
       <ToastContainer />
       <CookieNotice />
       <Router>
