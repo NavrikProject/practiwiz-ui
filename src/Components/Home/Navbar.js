@@ -11,7 +11,6 @@ const Navbar = () => {
   const [showMenuBarItems, setShowMenuBarItems] = useState(false);
   const [showItTrainingMenu, setShowItTrainingMenu] = useState(false);
   const [showBtTrainingMenu, setShowBtTrainingMenu] = useState(false);
-
   return (
     <>
       <header className="fixed">
@@ -59,6 +58,15 @@ const Navbar = () => {
                 <ul className="nav">
                   <li className="hasMegamenu dropdown_mob">
                     <a
+                      onClick={() => {
+                        return (
+                          setShowItTrainingMenu(!showItTrainingMenu),
+                          setShowBtTrainingMenu(false),
+                          setShowContactMenu(false),
+                          setAboutMenu(false),
+                          setAddBackGroundBackdrop("block")
+                        );
+                      }}
                       onMouseEnter={() => {
                         return (
                           setShowItTrainingMenu(true),
@@ -68,7 +76,6 @@ const Navbar = () => {
                           setAddBackGroundBackdrop("block")
                         );
                       }}
-                      href="link"
                     >
                       IT Training
                     </a>
@@ -87,6 +94,7 @@ const Navbar = () => {
                           ? "submenuHolder megamenu active"
                           : "submenuHolder megamenu"
                       }
+                      style={{ display: showItTrainingMenu ? "block" : "none" }}
                     >
                       {showItTrainingMenu === true && (
                         <>
@@ -130,19 +138,29 @@ const Navbar = () => {
                       )}
                     </div>
                   </li>
-                  <li
-                    className="hasMegamenu dropdown_mob"
-                    onMouseEnter={() => {
-                      return (
-                        setShowItTrainingMenu(false),
-                        setShowBtTrainingMenu(true),
-                        setShowContactMenu(false),
-                        setAboutMenu(false),
-                        setAddBackGroundBackdrop("block")
-                      );
-                    }}
-                  >
-                    <a href="link">Business Training</a>
+                  <li className="hasMegamenu dropdown_mob">
+                    <a
+                      onClick={() => {
+                        return (
+                          setShowItTrainingMenu(false),
+                          setShowBtTrainingMenu(!showBtTrainingMenu),
+                          setShowContactMenu(false),
+                          setAboutMenu(false),
+                          setAddBackGroundBackdrop("block")
+                        );
+                      }}
+                      onMouseEnter={() => {
+                        return (
+                          setShowItTrainingMenu(false),
+                          setShowBtTrainingMenu(true),
+                          setShowContactMenu(false),
+                          setAboutMenu(false),
+                          setAddBackGroundBackdrop("block")
+                        );
+                      }}
+                    >
+                      Business Training
+                    </a>
                     <div
                       onMouseLeave={() => {
                         return (
@@ -158,6 +176,7 @@ const Navbar = () => {
                           ? "submenuHolder megamenu active"
                           : "submenuHolder megamenu"
                       }
+                      style={{ display: showBtTrainingMenu ? "block" : "none" }}
                     >
                       {showBtTrainingMenu === true && (
                         <>
@@ -212,7 +231,15 @@ const Navbar = () => {
                   </li>
                   <li className="hasMegamenu dropdown_mob">
                     <a
-                      href="link"
+                      onClick={() => {
+                        return (
+                          setShowItTrainingMenu(false),
+                          setShowBtTrainingMenu(false),
+                          setShowContactMenu(false),
+                          setAboutMenu(!aboutMenu),
+                          setAddBackGroundBackdrop("block")
+                        );
+                      }}
                       onMouseEnter={() => {
                         return (
                           setShowItTrainingMenu(false),
@@ -240,6 +267,7 @@ const Navbar = () => {
                           ? "submenuHolder megamenu active"
                           : "submenuHolder megamenu"
                       }
+                      style={{ display: aboutMenu ? "block" : "none" }}
                     >
                       {aboutMenu === true && (
                         <>
@@ -278,12 +306,20 @@ const Navbar = () => {
                   </li>
                   <li className="hasMegamenu dropdown_mob">
                     <a
-                      href="link"
                       onMouseEnter={() => {
                         return (
                           setShowItTrainingMenu(false),
                           setShowBtTrainingMenu(false),
                           setShowContactMenu(true),
+                          setAboutMenu(false),
+                          setAddBackGroundBackdrop("block")
+                        );
+                      }}
+                      onClick={() => {
+                        return (
+                          setShowItTrainingMenu(false),
+                          setShowBtTrainingMenu(false),
+                          setShowContactMenu(!showContactMenu),
                           setAboutMenu(false),
                           setAddBackGroundBackdrop("block")
                         );
@@ -306,6 +342,7 @@ const Navbar = () => {
                           ? "submenuHolder megamenu active"
                           : "submenuHolder megamenu"
                       }
+                      style={{ display: showContactMenu ? "block" : "none" }}
                     >
                       {showContactMenu === true && (
                         <>

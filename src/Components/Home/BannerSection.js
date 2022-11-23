@@ -56,7 +56,7 @@ const BannerSection = () => {
           </li>
         </ul>
       </section>
-      <div className="center highlights features-project-right">
+      <div className="icon-div  center highlights features-project-right">
         <div className="joka-fp">
           <aside className="find_battery">
             <article className="inline cboxElement">

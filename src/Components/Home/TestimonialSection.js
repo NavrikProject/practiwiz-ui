@@ -14,7 +14,7 @@ const TestimonialSection = () => {
     { width: 1750, itemsToShow: 6 },
   ];
   return (
-    <section className="icon-div testimonials homeSec3">
+    <section className="testimonials homeSec3">
       <figure className="addAnimate" data-class="fadeIn" data-aos="fade-in">
         <div
           className="center addAnimate"

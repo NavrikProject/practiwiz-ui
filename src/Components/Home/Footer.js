@@ -4,11 +4,10 @@ import card2 from "../../images/card2.png";
 import card3 from "../../images/card3.png";
 import card4 from "../../images/card4.png";
 import card5 from "../../images/card5.png";
-
+// import logo from "../../images/Practiwiz-logo.png";
 const Footer = () => {
   return (
     <>
-      {" "}
       <section className="footer1">
         <div
           className="center addAnimate"
@@ -17,6 +16,9 @@ const Footer = () => {
         >
           <aside className="footer_menu">
             <ul>
+              {/* <li>
+                <img src={logo} alt="logo" />
+              </li> */}
               <li>
                 <a href="">About Us</a>
                 <p>
@@ -103,15 +105,12 @@ const Footer = () => {
                 </p>
                 <ul className="card">
                   <li>
-                    {" "}
                     <img src={card1} alt="" />
                   </li>
                   <li>
-                    {" "}
                     <img src={card2} alt="" />
                   </li>
                   <li>
-                    {" "}
                     <img src={card3} alt="" />
                   </li>
                   <li>

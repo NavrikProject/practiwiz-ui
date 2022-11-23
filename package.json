@@ -1,7 +1,7 @@
 {
   "name": "practiwiz-training-programme",
   "version": "0.1.0",
-  "homepage": "https://happy-tree-0192a720f.1.azurestaticapps.net/",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
@@ -50,7 +50,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build ",
+    "build": "CI=false && react-scripts build && set \"GENERATE_SOURCEMAP=false\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
