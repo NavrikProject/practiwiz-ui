@@ -1,19 +1,7 @@
 import React from "react";
 import bannerImage from "../../images/banner1.jpg";
 import bannerMobImage from "../../images/banner1-mob.jpg";
-import { useState } from "react";
 const BannerSection = () => {
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisible = () => {
-    const width = document.documentElement.clientWidth;
-    if (width <= 968) {
-      setVisible(true);
-    } else if (width > 968) {
-      setVisible(false);
-    }
-  };
-  window.addEventListener("resize", toggleVisible);
   return (
     <>
       <section className="homeSec1">
@@ -56,6 +44,7 @@ const BannerSection = () => {
           </li>
         </ul>
       </section>
+      {/* commented the number of learners badge */}
       {/* <div className="icon-div  center highlights features-project-right">
         <div className="joka-fp">
           <aside className="find_battery">

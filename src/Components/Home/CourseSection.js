@@ -32,14 +32,14 @@ const CourseSection = () => {
                 </figure>
                 <article>
                   <h3>Introduction Web design with HTML</h3>
-                  <div className="like_courses">525 Like</div>
+                  {/* <div className="like_courses">525 Like</div> */}
                   <div className="name_courses">Duha Samra</div>
                   <br />
                   <div className="top-line">
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -52,7 +52,7 @@ const CourseSection = () => {
                 </figure>
                 <article>
                   <h3>Introduction Web design with HTML</h3>
-                  <div className="like_courses">525 Like</div>
+                  {/* <div className="like_courses">525 Like</div> */}
                   <div className="name_courses">Duha Samra</div>
                   <br />
                   <div className="top-line">
@@ -72,7 +72,7 @@ const CourseSection = () => {
                 </figure>
                 <article>
                   <h3>Introduction Web design with HTML</h3>
-                  <div className="like_courses">525 Like</div>
+                  {/* <div className="like_courses">525 Like</div> */}
                   <div className="name_courses">Duha Samra</div>
                   <br />
                   <div className="top-line">
@@ -92,7 +92,7 @@ const CourseSection = () => {
                 </figure>
                 <article>
                   <h3>Introduction Web design with HTML</h3>
-                  <div className="like_courses">525 Like</div>
+                  {/* <div className="like_courses">525 Like</div> */}
                   <div className="name_courses">Duha Samra</div>
                   <br />
                   <div className="top-line">
@@ -112,7 +112,7 @@ const CourseSection = () => {
                 </figure>
                 <article>
                   <h3>Introduction Web design with HTML</h3>
-                  <div className="like_courses">525 Like</div>
+                  {/* <div className="like_courses">525 Like</div> */}
                   <div className="name_courses">Duha Samra</div>
                   <br />
                   <div className="top-line">

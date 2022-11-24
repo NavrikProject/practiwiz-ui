@@ -12,7 +12,8 @@ body {
 
 .homeSec1 {
   padding-top: 0px;
-  margin-bottom: -70px;
+  /* commented for removing of the badge */
+  /* margin-bottom: -70px; */
 }
 
 .homeBanner,
