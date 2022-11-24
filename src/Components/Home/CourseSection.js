@@ -31,9 +31,9 @@ const CourseSection = () => {
                   <img src={courseImg1} alt="" />
                 </figure>
                 <article>
-                  <h3>Introduction Web design with HTML</h3>
+                  <h3>Jumpstart to IT Business Analyst</h3>
                   {/* <div className="like_courses">525 Like</div> */}
-                  <div className="name_courses">Duha Samra</div>
+                  <div className="name_courses">Tarun Gautam</div>
                   <br />
                   <div className="top-line">
                     <span>
@@ -51,15 +51,15 @@ const CourseSection = () => {
                   <img src={courseImg2} alt="" />
                 </figure>
                 <article>
-                  <h3>Introduction Web design with HTML</h3>
+                  <h3>Business Analysis Foundation Training</h3>
                   {/* <div className="like_courses">525 Like</div> */}
-                  <div className="name_courses">Duha Samra</div>
+                  <div className="name_courses">Tarun Gautam</div>
                   <br />
                   <div className="top-line">
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -71,15 +71,15 @@ const CourseSection = () => {
                   <img src={courseImg3} alt="" />
                 </figure>
                 <article>
-                  <h3>Introduction Web design with HTML</h3>
+                  <h3>JUMPSTART to RPA LIVE BOT DEVELOPMENT</h3>
                   {/* <div className="like_courses">525 Like</div> */}
-                  <div className="name_courses">Duha Samra</div>
+                  <div className="name_courses">Tarun Gautam</div>
                   <br />
                   <div className="top-line">
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -91,15 +91,15 @@ const CourseSection = () => {
                   <img src={courseImg1} alt="" />
                 </figure>
                 <article>
-                  <h3>Introduction Web design with HTML</h3>
+                  <h3>Machine Learning with RPA</h3>
                   {/* <div className="like_courses">525 Like</div> */}
-                  <div className="name_courses">Duha Samra</div>
+                  <div className="name_courses">Tarun Gautam</div>
                   <br />
                   <div className="top-line">
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -119,7 +119,7 @@ const CourseSection = () => {
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>RS 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
