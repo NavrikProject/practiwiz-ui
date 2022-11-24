@@ -59,7 +59,7 @@ const CourseSection = () => {
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -79,7 +79,7 @@ const CourseSection = () => {
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -99,7 +99,7 @@ const CourseSection = () => {
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>&#x20b9 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
@@ -119,7 +119,7 @@ const CourseSection = () => {
                     <span>
                       <img src={userImage1} alt="" /> <b>64</b>
                     </span>
-                    <aside>RS 1050</aside>
+                    <aside>₹ 1050</aside>
                   </div>
                   <div className="clr"></div>
                 </article>
