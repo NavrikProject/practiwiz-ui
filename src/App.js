@@ -23,6 +23,7 @@ import ProtectedRoute from "./Components/Utils/ProtectedRoutes";
 import PublicRoute from "./Components/Utils/PublicRoute";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
+import AboutUsPage from "./Pages/AboutUsPage";
 // ..
 AOS.init();
 const App = () => {
@@ -51,6 +52,14 @@ const App = () => {
               element={
                 <PublicRoute>
                   <RegisterPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/about-us"
+              element={
+                <PublicRoute>
+                  <AboutUsPage />
                 </PublicRoute>
               }
             />
