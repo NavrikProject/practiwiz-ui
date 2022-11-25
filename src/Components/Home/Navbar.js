@@ -26,10 +26,10 @@ const Navbar = () => {
               <a href="link">Store</a>
               <a>|</a>
               <a href="link">Chill Zone</a>
-              <a href="link">
+              <a href="login">
                 <img src={LoginIcon} alt="link" /> Login
               </a>
-              <a href="link">
+              <a href="register">
                 <img src={userIcon} alt="link" /> Register
               </a>
             </div>

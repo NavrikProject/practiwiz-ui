@@ -7,6 +7,7 @@ const userSlice = createSlice({
     isFetching: false,
     currentUser: null,
     error: null,
+    isAuthenticated: false,
   },
 
   reducers: {
@@ -14,10 +15,12 @@ const userSlice = createSlice({
       state.isFetching = true;
       state.currentUser = null;
       state.error = null;
+      state.isAuthenticated = false;
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
+      state.isAuthenticated = true;
       localStorage.setItem("user", JSON.stringify(action.payload));
       state.error = null;
       toast.success("You are successfully logging in you", {
@@ -28,6 +31,7 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.currentUser = null;
       state.error = action.payload;
+      state.isAuthenticated = false;
       toast.error("There is some error, please try again later", {
         position: "top-center",
       });

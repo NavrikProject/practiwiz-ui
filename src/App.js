@@ -15,23 +15,45 @@ import LoadingSpinner from "./Components/Utils/LoadingSpinner";
 import CookieNotice from "./Components/Utils/CookieNotice";
 import ScrollToTop from "./Components/ScrollToTop";
 import HomePage from "./Pages/HomePage";
+import Model from "./Components/Utils/Model";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import { useDispatch, useSelector } from "react-redux";
-import { hideLoadingHandler, showLoadingHandler } from "./redux/loadingReducer";
+import { useSelector } from "react-redux";
+import ProtectedRoute from "./Components/Utils/ProtectedRoutes";
+import PublicRoute from "./Components/Utils/PublicRoute";
+import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
 // ..
 AOS.init();
 const App = () => {
   const { isLoading } = useSelector((state) => state.loading);
+  const { isShowingModel } = useSelector((state) => state.model);
   return (
     <>
-      {isLoading ? <LoadingSpinner /> : null} 
+      {isLoading ? <LoadingSpinner /> : null}
+      {isShowingModel ? <Model /> : null}
       <ToastContainer />
       <CookieNotice />
       <Router>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute>
+                  <RegisterPage />
+                </PublicRoute>
+              }
+            />
           </Routes>
         </Suspense>
       </Router>
