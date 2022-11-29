@@ -8,7 +8,7 @@ const AboutUs = () => {
     <>
       <section class="inner-banner">
         <ul class="inner">
-          <li class="bannerSlide">
+          <li class="bannerSlide" data-aos="fade-up">
             <figure class="only-des">
               <img src={innerBannerWeb} alt="" />
             </figure>
@@ -30,7 +30,7 @@ const AboutUs = () => {
           </li>
         </ul>
       </section>
-      <section class="innty uuyi testimonials homeSec3">
+      <section class="innty uuyi testimonials homeSec3" data-aos="fade-right">
         <figure class="addAnimate" data-class="fadeIn">
           <div class="center addAnimate" data-class="fadeInBottom">
             <div class="about-left2">
@@ -219,7 +219,7 @@ const AboutUs = () => {
       <section class="founder uuyi testimonials homeSec3">
         <figure class="addAnimate" data-class="fadeIn">
           <div class="center addAnimate" data-class="fadeInBottom">
-            <div class="about-left">
+            <div class="about-left" data-aos="fade-right">
               <h4>Tarun Gautam</h4>
               <h2>Our Visionary Founder</h2>
               <p>
@@ -269,7 +269,7 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div class="about-right">
+            <div class="about-right" data-aos="fade-left">
               <img src={aboutImg} alt="" />
               <p>
                 Founder & CEO<span>Tarun Gautam</span>
