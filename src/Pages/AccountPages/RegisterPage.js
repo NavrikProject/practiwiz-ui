@@ -6,14 +6,13 @@ import LoadingSpinner from "../../Components/utils/LoadingSpinner";
 const Navbar = React.lazy(() => import("../../Components/Home/Navbar"));
 const Footer = React.lazy(() => import("../../Components/Home/Footer.js"));
 const RegisterForm = React.lazy(() =>
-  import("../../Components/Forms/RegisterForm.js")
+  import("../../Components/Forms/AccountForms/RegisterForm.js")
 );
 const RegisterPage = () => {
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <Navbar />
       <RegisterForm />
-      <Footer />
+      {/* <Footer /> */}
       <GoToTop />
     </Suspense>
   );

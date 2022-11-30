@@ -13,7 +13,8 @@ import {
 import axios from "axios";
 import moment from "moment/moment";
 import { useSelector } from "react-redux";
-import LoginModel from "../../Forms/LoginModel";
+import LoginModel from "../../Forms/AccountForms/LoginModel";
+import { ModelFixedHeight } from "../../utils/Model";
 import ApplyJobForm from "./ApplyJobForm";
 const JobCard = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -48,7 +49,9 @@ const JobCard = () => {
   return (
     <JobCardSection>
       {showLoginModal && (
-        <LoginModel showLoginModelHandler={showLoginModelHandler} />
+        <ModelFixedHeight closeModelHandler={showLoginModelHandler}>
+          <LoginModel />
+        </ModelFixedHeight>
       )}
       {showApplyJobForm && (
         <ApplyJobForm
