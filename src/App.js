@@ -42,6 +42,10 @@ import JobsAdminPage from "./Pages/DashboardPages/JobsAdminPage";
 import CourseProgressAdminPage from "./Pages/DashboardPages/CourseProgressAdminPage";
 import UsersAdminPage from "./Pages/DashboardPages/UsersAdminPage";
 import JobIndividualPage from "./Pages/JobPages/JobIndividualPage";
+import IndividualCoursePage from "./Pages/CoursePages/IndividualCoursePage";
+import WhyPractiwizPage from "./Pages/WhyPractiwizPage";
+import MethodologyPage from "./Pages/MethodologyPage";
+import RefundPoliciesPage from "./Pages/RefundPoliciesPage";
 // ..
 AOS.init();
 const App = () => {
@@ -64,6 +68,9 @@ const App = () => {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/why-practiwiz" element={<WhyPractiwizPage />} />
+            <Route path="/methodology" element={<MethodologyPage />} />
+            <Route path="/refund-policies" element={<RefundPoliciesPage />} />
             <Route
               path="/login"
               element={
@@ -97,29 +104,12 @@ const App = () => {
                 </PublicRoute>
               }
             />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/jobs" element={<AllJobsPage />} />
+            <Route path="/courses" element={<AllCoursePage />} />
             <Route
-              path="/about-us"
-              element={
-                <PublicRoute>
-                  <AboutUsPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/jobs"
-              element={
-                <PublicRoute>
-                  <AllJobsPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/courses"
-              element={
-                <PublicRoute>
-                  <AllCoursePage />
-                </PublicRoute>
-              }
+              path="/courses/individual-course/:id"
+              element={<IndividualCoursePage />}
             />
             <Route
               exact
@@ -130,38 +120,13 @@ const App = () => {
                 </PublicRoute>
               }
             />
-            <Route
-              path="/privacy-policies"
-              element={
-                <PublicRoute>
-                  <PrivacyPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/terms-conditions"
-              element={
-                <PublicRoute>
-                  <TermsCondition />
-                </PublicRoute>
-              }
-            />
+            <Route path="/privacy-policies" element={<PrivacyPage />} />
+            <Route path="/terms-conditions" element={<TermsCondition />} />
             {/* mentor club routes starts */}
-            <Route
-              path="/mentors-club"
-              element={
-                <PublicRoute>
-                  <MentorClubPage />
-                </PublicRoute>
-              }
-            />
+            <Route path="/mentors-club" element={<MentorClubPage />} />
             <Route
               path={`/mentors-club/individual/:id`}
-              element={
-                <PublicRoute>
-                  <MentorIndividualPage />
-                </PublicRoute>
-              }
+              element={<MentorIndividualPage />}
             />
             <Route
               path="/mentor/apply-for-mentor"
