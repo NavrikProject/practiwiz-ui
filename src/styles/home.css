@@ -860,6 +860,10 @@ ul.ps_dots {
   width: 150px;
   margin: 16px auto;
 }
+.testimonialImage {
+  width: 46px !important;
+  border-radius: 50%;
+}
 /*img:hover { -webkit-transform: scale(1.1);  transform: scale(1.1); -webkit-transition: .5s ease-in-out; transition: .5s ease-in-out;}
 img {-webkit-transform: scale(1); transform: scale(1);}*/
 .more {

@@ -13,7 +13,6 @@ const AllContributers = () => {
 
   useEffect(() => {
     const getAllTheCourse = async () => {
-      setLoading(true);
       const res = await axios.get(
         `https://deploy-practiwiz.azurewebsites.net/api/contributers/get-all`,
         {

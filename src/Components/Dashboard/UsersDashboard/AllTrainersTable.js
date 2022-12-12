@@ -13,7 +13,6 @@ const UsersTable = () => {
 
   useEffect(() => {
     const getCourseByTitles = async () => {
-      setLoading(true);
       const res = await axios.get(
         `https://deploy-practiwiz.azurewebsites.net/api/trainer/getAllTrainers`,
         {
@@ -22,6 +21,10 @@ const UsersTable = () => {
       );
       if (res.data) {
         setAllTrainers(res.data);
+        setLoading(false);
+      }
+      if (!res.data) {
+        setAllTrainers();
         setLoading(false);
       }
     };
