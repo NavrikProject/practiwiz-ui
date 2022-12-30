@@ -19,7 +19,7 @@ const Backdrop = styled.div`
 `;
 const Modal = styled.div`
   position: fixed;
-  top: 18vh;
+  top: 150px;
   left: 5%;
   width: 90%;
   height: auto;
@@ -136,6 +136,8 @@ const LabelTitle = styled.p`
 const TextArea = styled.textarea`
   width: 100%;
   padding-bottom: 10px;
+  border: 1px solid #111;
+  border-radius: 7px;
   ::placeholder {
     font-size: 18px;
     padding-left: 10px;
@@ -180,7 +182,7 @@ const CancelWarningModal = (props) => {
     }
     setLoading(true);
     const res = await axios.put(
-      `https://deploy-practiwiz.azurewebsites.net/api/mentor/bookings/update/cancel/appointment/${props.sendMentor.bookingId}`,
+      `http://localhost:1337/api/mentor/bookings/update/cancel/appointment/${props.sendMentor.bookingId}`,
       { reasonExp: data.reasonExp, reason: data.reason },
       {
         headers: { authorization: "Bearer " + user?.accessToken },
@@ -205,12 +207,12 @@ const CancelWarningModal = (props) => {
 
   return (
     <Backdrop>
-      {loading && <LoadingSpinner />}
       <Modal>
         <CloseButtonDiv onClick={props.cancelAppointmentHandler}>
           <CloseButton />
         </CloseButtonDiv>
         <MentorBoxDiv>
+          {loading && <p>Loading......</p>}
           {error && (
             <p style={{ color: "red", textAlign: "center" }}>{error}</p>
           )}

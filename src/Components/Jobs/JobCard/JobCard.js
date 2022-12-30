@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import {
-  ApplyNowButton,
-  JobCardDescription,
-  JobCardDisplayFlexDiv,
-  JobCardDiv,
-  JobCardSection,
-  JobTitle,
-  ViewJobButton,
-} from "./JobCardElements";
 import axios from "axios";
-import moment from "moment/moment";
 import { useSelector } from "react-redux";
 import LoginModel from "../../Forms/AccountForms/LoginModel";
 import { ModelFixedHeight } from "../../utils/Model";
@@ -28,7 +17,7 @@ const JobCard = () => {
     const getAllJobPosts = async () => {
       setLoading(true);
       const res = await axios.get(
-        "https://deploy-practiwiz.azurewebsites.net/api/jobs/get/all-jobs-posts"
+        "http://localhost:1337/api/jobs/get/all-jobs-posts"
       );
       if (res.data.success) {
         setAllJobs(res.data.success);

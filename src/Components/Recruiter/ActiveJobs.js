@@ -33,6 +33,9 @@ const Input = styled.input`
   &:focus {
     border-color: #fc83bb;
   }
+  @media screen and (max-width: 780px) {
+    width: 100%;
+  }
 `;
 const JobsTitle = styled.h1`
   color: #111;
@@ -49,6 +52,14 @@ const NotFoundDiv = styled.div`
     padding: 20px;
   }
 `;
+const ViewText = styled.p`
+  display: none;
+  color: red;
+  margin-bottom: 10px;
+  @media screen and (max-width: 780px) {
+    display: block;
+  }
+`;
 const ActiveJobs = () => {
   const [allActiveJobs, setAllActiveJobs] = useState([]);
   const [jobDetails, setJobDetails] = useState("");
@@ -58,7 +69,7 @@ const ActiveJobs = () => {
   useEffect(() => {
     const getAllActiveJobPosts = async () => {
       const res = await axios.get(
-        "https://deploy-practiwiz.azurewebsites.net/api/recruiter/get/open-positions"
+        "http://localhost:1337/api/recruiter/get/open-positions"
       );
       if (res.data.success) {
         setAllActiveJobs(res.data.success);
@@ -86,6 +97,9 @@ const ActiveJobs = () => {
       </JobsTitle>
       {allActiveJobs?.length > 0 ? (
         <>
+          <ViewText>
+            Set view to the desktop site for better visualization.
+          </ViewText>
           <Input
             placeholder="Search by the Skills,Qualification,Role, Opening status...."
             type="text"

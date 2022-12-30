@@ -18,6 +18,9 @@ const UpcomingAllDivContent = styled.p`
     font-weight: 600;
     text-transform: uppercase;
   }
+  @media screen and (max-width: 780px) {
+    font-size: 16px;
+  }
 `;
 const JoinButtonDiv = styled.div`
   padding: 20px 0;
@@ -50,7 +53,7 @@ const UpcomingAllSessionDetails = (props) => {
   const token = user?.accessToken;
   const attendMeetingHandler = async (bookingId) => {
     await axios.post(
-      `https://deploy-practiwiz.azurewebsites.net/api/mentor/bookings/get/all-bookings/attended/update`,
+      `http://localhost:1337/api/mentor/bookings/get/all-bookings/attended/update`,
       { userEmail: user?.email, bookingId: bookingId },
       {
         headers: { authorization: "Bearer " + token },

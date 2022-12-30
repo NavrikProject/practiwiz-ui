@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  CloseButton,
   Form,
   FormBtn,
   FormDiv,
@@ -19,10 +18,21 @@ const ImageForm = (props) => {
   const token = user?.accessToken;
   const onImageUploadHandler = async (event) => {
     event.preventDefault();
+    if (image.size > 2097152) {
+      console.log(image.size);
+      return (
+        setError("Size must be less than 2mb"),
+        toast.error("Size must be less than 2mb", {
+          position: "top-center",
+        })
+      );
+    }
     let data = new FormData();
     data.append("image", image);
     const res = await axios.put(
-      `https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/image/upload/${user?.id}`,
+      user?.type === "member"
+        ? `http://localhost:1337/api/member/profile/image/upload/${user?.id}`
+        : `http://localhost:1337/api/${user?.type}/profile/image/up/${user?.id}`,
       data,
       {
         headers: { authorization: "Bearer " + token },
@@ -44,7 +54,6 @@ const ImageForm = (props) => {
   };
   return (
     <>
-      <CloseButton onClick={props.personal} />
       <FormDiv>
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
@@ -52,8 +61,9 @@ const ImageForm = (props) => {
           <ImageTitleChoose>
             Choose Picture from your local storage
           </ImageTitleChoose>
-
           <ImgInput
+            data-max-size="2048"
+            accept="image/png, image/gif, image/jpeg"
             required
             type="file"
             name="image"

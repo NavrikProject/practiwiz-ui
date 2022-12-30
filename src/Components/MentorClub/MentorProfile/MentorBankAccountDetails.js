@@ -47,7 +47,6 @@ const FormBtn = styled.button`
   }
 `;
 const FormDiv = styled.div`
-  padding: 50px;
   margin-left: 20px;
   @media only screen and (max-width: 868px) {
     padding: 30px 20px;
@@ -115,7 +114,7 @@ const MentorBankDetails = (props) => {
     } else {
       setLoading(true);
       const response = await axios.post(
-        `https://deploy-practiwiz.azurewebsites.net/api/mentor/profile/bank/details/add/${user?.id}`,
+        `http://localhost:1337/api/mentor/profile/bank/details/add/${user?.id}`,
         {
           accountNumber: accountNumber,
           ifscCode: ifscCode,
@@ -161,7 +160,6 @@ const MentorBankDetails = (props) => {
 
   return (
     <>
-      <CloseButton onClick={props.personal} />
       <FormDiv>
         <Form onSubmit={verifyIfscCode}>
           <ForDiv>

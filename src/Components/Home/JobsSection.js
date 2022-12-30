@@ -44,14 +44,14 @@ const JobsSection = () => {
         >
           <Carousel breakPoints={breakPoints}>
             {allJobs?.slice(0, 8).map((job) => (
-              <div>
+              <div key={job.job_post_dtls_id}>
                 <li className="ps_item auto">
                   <div>
                     <aside>
-                      <img src={job.job_post_company_logo} alt="" />
+                      <img src={job.hiring_company_image} alt="" />
                     </aside>
                     <h3>
-                      {job.job_post_company_name}
+                      {job.hiring_company_name}
                       <br />
                       <div className="star">
                         <span className="fa fa-star checked"></span>

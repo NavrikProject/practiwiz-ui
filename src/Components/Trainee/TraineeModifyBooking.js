@@ -2,29 +2,15 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
-import Model from "./Model";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../images/Practiwiz-logo.png";
 import LoadingSpinner from "../utils/LoadingSpinner.js";
-
-const CloseButton = styled(AiOutlineClose)`
-  font-size: 25px;
-  color: #111;
-  cursor: pointer;
-`;
-const CloseButtonDiv = styled.div`
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  cursor: pointer;
-`;
+import { ModelFixedHeight } from "../utils/Model";
+import "./Model.css";
 const FormDiv = styled.div`
   padding: 40px 20px;
   width: 90%;
@@ -62,7 +48,7 @@ const TraineeModifyBooking = ({
     try {
       const getAllMentorDetailsAvailability = async () => {
         const res = await axios.post(
-          `https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/get/bookings/onlymentor`,
+          `http://localhost:1337/api/trainee/profile/booking/get/bookings/onlymentor`,
           {
             mentorEmail: mentor.mentorEmail,
           }
@@ -79,7 +65,7 @@ const TraineeModifyBooking = ({
     try {
       const getAllMentorDetailsAvailability = async () => {
         const res = await axios.post(
-          `https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/get/bookings/availability`,
+          `http://localhost:1337/api/trainee/profile/booking/get/bookings/availability`,
           {
             mentorEmail: mentor.mentorEmail,
           }
@@ -154,8 +140,8 @@ const TraineeModifyBooking = ({
     setLoading(true);
     const res = await axios.put(
       !bookingStatus
-        ? `https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/update/bookings/${mentor.bookingId}`
-        : `https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/reschedule/bookings/${mentor.bookingId}`,
+        ? `http://localhost:1337/api/trainee/profile/booking/update/bookings/${mentor.bookingId}`
+        : `http://localhost:1337/api/trainee/profile/booking/reschedule/bookings/${mentor.bookingId}`,
       {
         date: date.toLocaleDateString(),
         bookingId: mentor.bookingId,
@@ -210,7 +196,7 @@ const TraineeModifyBooking = ({
       try {
         setLoading(true);
         const result = await axios.post(
-          "https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/update/bookings/modify-order",
+          "http://localhost:1337/api/trainee/profile/booking/update/bookings/modify-order",
           {
             bookingId: mentor.bookingId,
             date: date.toLocaleDateString(),
@@ -227,9 +213,7 @@ const TraineeModifyBooking = ({
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
-        } = await axios.get(
-          "https://deploy-practiwiz.azurewebsites.net/api/get-razorpay-key"
-        );
+        } = await axios.get("http://localhost:1337/api/get-razorpay-key");
 
         const options = {
           key: razorpayKey,
@@ -241,7 +225,7 @@ const TraineeModifyBooking = ({
           order_id: order_id,
           handler: async function (response) {
             const res = await axios.put(
-              "https://deploy-practiwiz.azurewebsites.net/api/trainee/profile/booking/update/bookings/modify-booking/pay",
+              "http://localhost:1337/api/trainee/profile/booking/update/bookings/modify-booking/pay",
               {
                 amount: amount,
                 razorpayPaymentId: response.razorpay_payment_id,
@@ -266,8 +250,8 @@ const TraineeModifyBooking = ({
             }
           },
           prefill: {
-            name: "example name",
-            email: "email@example.com",
+            name: user?.firstname + " " + user?.lastname,
+            email: user?.email,
             contact: "111111",
           },
           theme: {
@@ -290,11 +274,8 @@ const TraineeModifyBooking = ({
   }, 10000);
   return (
     <>
-      <Model>
-        <CloseButtonDiv onClick={modifyMentorAppointMent}>
-          <CloseButton />
-        </CloseButtonDiv>
-        {loading && <LoadingSpinner />}
+      <ModelFixedHeight closeModelHandler={modifyMentorAppointMent}>
+        {loading && <p>Loading please wait...</p>}
         <FormDiv>
           {error && <p style={{ color: "red", fontSize: "20px" }}>{error}</p>}
           {success && (
@@ -342,7 +323,7 @@ const TraineeModifyBooking = ({
             </p>
           </Terms>
         </FormDiv>
-      </Model>
+      </ModelFixedHeight>
     </>
   );
 };

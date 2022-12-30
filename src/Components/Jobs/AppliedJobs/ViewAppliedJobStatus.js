@@ -46,6 +46,17 @@ const Input = styled.input`
   &:focus {
     border-color: #fc83bb;
   }
+  @media screen and (max-width: 780px) {
+    width: 100%;
+  }
+`;
+const ViewText = styled.p`
+  display: none;
+  color: red;
+
+  @media screen and (max-width: 780px) {
+    display: block;
+  }
 `;
 const NotFoundDiv = styled.div`
   box-shadow: rgb(142 151 158 / 15%) 0px 4px 19px;
@@ -65,7 +76,7 @@ const ViewAppliedJobStatus = () => {
   useEffect(() => {
     const getAllJobPosts = async () => {
       const res = await axios.post(
-        `https://deploy-practiwiz.azurewebsites.net/api/job-seeker/view-jobs/${user?.id}`,
+        `http://localhost:1337/api/job-seeker/view-jobs/${user?.id}`,
         {
           userEmail: user?.email,
         }
@@ -93,6 +104,9 @@ const ViewAppliedJobStatus = () => {
                   setSearchItem(event.target.value);
                 }}
               />
+              <ViewText>
+                Set view to the desktop site for better visualization.
+              </ViewText>
               <Table>
                 <Tbody>
                   <Tr>

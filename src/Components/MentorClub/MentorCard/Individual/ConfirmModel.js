@@ -24,7 +24,7 @@ const Backdrop = styled.div`
 `;
 const Modal = styled.div`
   position: fixed;
-  top: 15vh;
+  top: 150px;
   left: 5%;
   width: 90%;
   height: auto;
@@ -129,6 +129,8 @@ const LabelTitle = styled.p`
 const TextArea = styled.textarea`
   width: 100%;
   padding-bottom: 10px;
+  border: 1px solid #111;
+  border-radius: 5px;
   ::placeholder {
     font-size: 16px;
   }
@@ -158,7 +160,7 @@ const ConfirmModel = (props) => {
       try {
         dispatch(showLoadingHandler());
         const result = await axios.post(
-          `https://deploy-practiwiz.azurewebsites.net/api/mentor/create/appointment/create-order`,
+          `http://localhost:1337/api/mentor/create/appointment/create-order`,
           {
             mentorId: props.sendMentor.mentor_dtls_id,
             date: new Date(props.date).toLocaleDateString(),
@@ -175,9 +177,7 @@ const ConfirmModel = (props) => {
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
-        } = await axios.get(
-          "https://deploy-practiwiz.azurewebsites.net/api/get-razorpay-key"
-        );
+        } = await axios.get("http://localhost:1337/api/get-razorpay-key");
         const options = {
           key: razorpayKey,
           amount: amount.toString(),
@@ -188,7 +188,7 @@ const ConfirmModel = (props) => {
           order_id: order_id,
           handler: async function (response) {
             const res = await axios.post(
-              "https://deploy-practiwiz.azurewebsites.net/api/mentor/create/appointment/pay-order",
+              "http://localhost:1337/api/mentor/create/appointment/pay-order",
               {
                 amount: amount,
                 razorpayPaymentId: response.razorpay_payment_id,
@@ -225,8 +225,8 @@ const ConfirmModel = (props) => {
             }
           },
           prefill: {
-            name: "example name",
-            email: "email@example.com",
+            name: user?.firstname + " " + user?.lastname,
+            email: user?.email,
             contact: "111111",
           },
           theme: {

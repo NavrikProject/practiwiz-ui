@@ -77,7 +77,7 @@ const ViewJobResponses = () => {
   useEffect(() => {
     const getAllJobPosts = async () => {
       const res = await axios.get(
-        `https://deploy-practiwiz.azurewebsites.net/api/jobs/apply/post/view-responses/${path}`
+        `http://localhost:1337/api/jobs/apply/post/view-responses/${path}`
       );
       if (res.data.success) {
         setViewJobResponses(res.data.success);

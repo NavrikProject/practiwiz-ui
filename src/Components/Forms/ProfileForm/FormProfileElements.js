@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { BiHide, BiShow } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 export const FormDiv = styled.div`
-  padding: 50px;
-  margin-left: 20px;
+  padding: 50px 0;
   @media only screen and (max-width: 868px) {
     padding: 30px 20px;
     margin-left: 0px;
   }
   @media only screen and (max-width: 468px) {
-    padding: 20px 10px;
     margin-left: 0px;
+    padding: 50px !important;
   }
 `;
 
@@ -19,7 +18,7 @@ export const FormInput = styled.input`
   padding: 5px 10px;
   display: block;
   width: 90%;
-  
+
   font-size: 19px;
   background: transparent;
   border: none;

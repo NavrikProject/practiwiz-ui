@@ -152,7 +152,7 @@ const MentorBookingCardModel = (props) => {
     try {
       const getAllMentorDetailsAvailability = async () => {
         const res = await axios.get(
-          `https://deploy-practiwiz.azurewebsites.net/api/mentor/get/booking`
+          `http://localhost:1337/api/mentor/get/booking`
         );
         setMentorBookingDate(res.data);
       };
@@ -180,7 +180,7 @@ const MentorBookingCardModel = (props) => {
       try {
         setLoading(true);
         const result = await axios.post(
-          `https://deploy-practiwiz.azurewebsites.net/api/mentor/create/appointment/create-order`,
+          `http://localhost:1337/api/mentor/create/appointment/create-order`,
           {
             mentorId: props.sendMentor.mentor_dtls_id,
             date: new Date(date).toLocaleDateString(),
@@ -198,7 +198,7 @@ const MentorBookingCardModel = (props) => {
         const {
           data: { key: razorpayKey },
         } = await axios.get(
-          "https://deploy-practiwiz.azurewebsites.net/api/get-razorpay-key"
+          "http://localhost:1337/api/get-razorpay-key"
         );
         const options = {
           key: razorpayKey,
@@ -210,7 +210,7 @@ const MentorBookingCardModel = (props) => {
           order_id: order_id,
           handler: async function (response) {
             const res = await axios.post(
-              "https://deploy-practiwiz.azurewebsites.net/api/mentor/create/appointment/pay-order",
+              "http://localhost:1337/api/mentor/create/appointment/pay-order",
               {
                 amount: amount,
                 razorpayPaymentId: response.razorpay_payment_id,
@@ -298,7 +298,6 @@ const MentorBookingCardModel = (props) => {
   };
 
   const showLoginModelHandler = () => {
-    console.log("Clicked");
     setShowLoginModal(!showLoginModal);
   };
   return (

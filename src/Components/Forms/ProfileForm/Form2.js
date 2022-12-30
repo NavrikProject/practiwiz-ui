@@ -31,7 +31,7 @@ const Form2 = (props) => {
     try {
       setLoading(true);
       const result = await axios.put(
-        `https://deploy-practiwiz.azurewebsites.net/api/${user?.type}/profile/account/${user?.id}`,
+        `http://localhost:1337/api/${user?.type}/profile/account/${user?.id}`,
         { firstName: data.firstName, lastName: data.lastName },
         {
           headers: { authorization: "Bearer " + token },
@@ -60,7 +60,6 @@ const Form2 = (props) => {
 
   return (
     <>
-      <CloseButton onClick={props.personal} />
       <FormDiv>
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}

@@ -53,7 +53,7 @@ const InActiveJobs = () => {
   useEffect(() => {
     const getAllActiveJobPosts = async () => {
       const res = await axios.get(
-        "https://deploy-practiwiz.azurewebsites.net/api/recruiter/get/closed-positions"
+        "http://localhost:1337/api/recruiter/get/closed-positions"
       );
       if (res.data.success) {
         setAllInActiveJobs(res.data.success);

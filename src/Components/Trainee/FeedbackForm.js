@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import LoadingSpinner from "../utils/LoadingSpinner";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { ScrollModel } from "../utils/Model";
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
@@ -179,7 +180,7 @@ const FeedbackForm = (props) => {
     try {
       setLoading(true);
       const result = await axios.post(
-        "https://deploy-practiwiz.azurewebsites.net/api/feedback",
+        "http://localhost:1337/api/feedback",
         newData,
         {
           headers: { authorization: "Bearer " + token },
@@ -208,318 +209,312 @@ const FeedbackForm = (props) => {
     } catch (error) {}
   };
   return (
-    <Backdrop>
-      {loading && <LoadingSpinner />}
-      <Modal>
-        <CloseButtonDiv onClick={props.showFeedBackMentorHandler}>
-          <CloseButton></CloseButton>
-        </CloseButtonDiv>
-        <WrapperDiv>
-          {error && <p style={{ color: "red", fontSize: "20px" }}>{error}</p>}
-          {success && (
-            <p style={{ color: "green", fontSize: "20px" }}>{success}</p>
-          )}
-          <form action="" onSubmit={handleSubmit(feedbackSubmitHandler)}>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion1.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question1", {
-                            required: "Question one answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question1 && (
-                <ErrorMessage>{errors.question1.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion2.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question2", {
-                            required: "Question two answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question2 && (
-                <ErrorMessage>{errors.question2.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion3.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question3", {
-                            required: "Question three answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question3 && (
-                <ErrorMessage>{errors.question3.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion4.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question4", {
-                            required: "Question four answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question4 && (
-                <ErrorMessage>{errors.question4.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion5.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question5", {
-                            required: "Question five answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question5 && (
-                <ErrorMessage>{errors.question5.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion6.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question6", {
-                            required: "Question six answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question6 && (
-                <ErrorMessage>{errors.question6.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion7.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question7", {
-                            required: "Question seven answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question7 && (
-                <ErrorMessage>{errors.question7.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion8.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question8", {
-                            required: "Question eight answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question8 && (
-                <ErrorMessage>{errors.question8.message}</ErrorMessage>
-              )}
-            </QuestionDiv>
-            <QuestionDiv>
-              <QuestionDivBox>
+    <ScrollModel closeScrollModelHandler={props.showFeedBackMentorHandler}>
+      <WrapperDiv>
+        {loading && <p>Loading please wait...</p>}
+        {error && <p style={{ color: "red", fontSize: "20px" }}>{error}</p>}
+        {success && (
+          <p style={{ color: "green", fontSize: "20px" }}>{success}</p>
+        )}
+        <form action="" onSubmit={handleSubmit(feedbackSubmitHandler)}>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion1.map((question) => (
+              <QuestionDivBox key={question.qnId}>
                 <QuestionDivH3>
-                  9) What aspects of the teaching/training were particularly
-                  good?
+                  {question.qnId}) {question.question}
                 </QuestionDivH3>
                 <RadioWrapper>
-                  <TextArea
-                    placeholder="Describe about yourself in brief words"
-                    {...register("question9", {
-                      required: "Must be required",
-                      minLength: {
-                        value: 50,
-                        message: "More than 50 characters at least",
-                      },
-                    })}
-                  ></TextArea>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question1", {
+                          required: "Question one answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
                 </RadioWrapper>
-                {errors.question9 && (
-                  <ErrorMessage>{errors.question9.message}</ErrorMessage>
-                )}
               </QuestionDivBox>
-            </QuestionDiv>
-            <QuestionDiv>
-              <QuestionDivBox>
+            ))}
+            {errors.question1 && (
+              <ErrorMessage>{errors.question1.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion2.map((question) => (
+              <QuestionDivBox key={question.qnId}>
                 <QuestionDivH3>
-                  10) What aspects of the mentor could be improved?
+                  {question.qnId}) {question.question}
                 </QuestionDivH3>
                 <RadioWrapper>
-                  <TextArea
-                    placeholder="Describe about yourself in brief words"
-                    {...register("question10", {
-                      required: "Must be required",
-                    })}
-                  ></TextArea>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question2", {
+                          required: "Question two answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
                 </RadioWrapper>
-                {errors.question10 && (
-                  <ErrorMessage>{errors.question10.message}</ErrorMessage>
-                )}
               </QuestionDivBox>
-            </QuestionDiv>
-            <QuestionDiv>
-              {TraineeFeedbackQuestion11.map((question) => (
-                <QuestionDivBox key={question.qnId}>
-                  <QuestionDivH3>
-                    {question.qnId}) {question.question}
-                  </QuestionDivH3>
-                  <RadioWrapper>
-                    {question.options.map((option) => (
-                      <RadioWrapper key={option.optionId}>
-                        <InputRadio
-                          type="radio"
-                          value={option.value}
-                          {...register("question11", {
-                            required: "Question four answer is Required",
-                          })}
-                        />
-                        <InputRadLabel htmlFor={question.qnId}>
-                          {option.value}
-                        </InputRadLabel>
-                      </RadioWrapper>
-                    ))}
-                  </RadioWrapper>
-                </QuestionDivBox>
-              ))}
-              {errors.question11 && (
-                <ErrorMessage>{errors.question11.message}</ErrorMessage>
+            ))}
+            {errors.question2 && (
+              <ErrorMessage>{errors.question2.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion3.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question3", {
+                          required: "Question three answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question3 && (
+              <ErrorMessage>{errors.question3.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion4.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question4", {
+                          required: "Question four answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question4 && (
+              <ErrorMessage>{errors.question4.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion5.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question5", {
+                          required: "Question five answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question5 && (
+              <ErrorMessage>{errors.question5.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion6.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question6", {
+                          required: "Question six answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question6 && (
+              <ErrorMessage>{errors.question6.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion7.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question7", {
+                          required: "Question seven answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question7 && (
+              <ErrorMessage>{errors.question7.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion8.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question8", {
+                          required: "Question eight answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question8 && (
+              <ErrorMessage>{errors.question8.message}</ErrorMessage>
+            )}
+          </QuestionDiv>
+          <QuestionDiv>
+            <QuestionDivBox>
+              <QuestionDivH3>
+                9) What aspects of the teaching/training were particularly good?
+              </QuestionDivH3>
+              <RadioWrapper>
+                <TextArea
+                  placeholder="Describe about yourself in brief words"
+                  {...register("question9", {
+                    required: "Must be required",
+                    minLength: {
+                      value: 50,
+                      message: "More than 50 characters at least",
+                    },
+                  })}
+                ></TextArea>
+              </RadioWrapper>
+              {errors.question9 && (
+                <ErrorMessage>{errors.question9.message}</ErrorMessage>
               )}
-              <ButtonDiv>
-                <SubmitButton type="submit">Submit</SubmitButton>
-              </ButtonDiv>
-            </QuestionDiv>
-          </form>
-        </WrapperDiv>
-      </Modal>
-    </Backdrop>
+            </QuestionDivBox>
+          </QuestionDiv>
+          <QuestionDiv>
+            <QuestionDivBox>
+              <QuestionDivH3>
+                10) What aspects of the mentor could be improved?
+              </QuestionDivH3>
+              <RadioWrapper>
+                <TextArea
+                  placeholder="Describe about yourself in brief words"
+                  {...register("question10", {
+                    required: "Must be required",
+                  })}
+                ></TextArea>
+              </RadioWrapper>
+              {errors.question10 && (
+                <ErrorMessage>{errors.question10.message}</ErrorMessage>
+              )}
+            </QuestionDivBox>
+          </QuestionDiv>
+          <QuestionDiv>
+            {TraineeFeedbackQuestion11.map((question) => (
+              <QuestionDivBox key={question.qnId}>
+                <QuestionDivH3>
+                  {question.qnId}) {question.question}
+                </QuestionDivH3>
+                <RadioWrapper>
+                  {question.options.map((option) => (
+                    <RadioWrapper key={option.optionId}>
+                      <InputRadio
+                        type="radio"
+                        value={option.value}
+                        {...register("question11", {
+                          required: "Question four answer is Required",
+                        })}
+                      />
+                      <InputRadLabel htmlFor={question.qnId}>
+                        {option.value}
+                      </InputRadLabel>
+                    </RadioWrapper>
+                  ))}
+                </RadioWrapper>
+              </QuestionDivBox>
+            ))}
+            {errors.question11 && (
+              <ErrorMessage>{errors.question11.message}</ErrorMessage>
+            )}
+            <ButtonDiv>
+              <SubmitButton type="submit">Submit</SubmitButton>
+            </ButtonDiv>
+          </QuestionDiv>
+        </form>
+      </WrapperDiv>
+    </ScrollModel>
   );
 };
 

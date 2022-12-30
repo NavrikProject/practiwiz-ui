@@ -46,7 +46,7 @@ const PostJobForm = () => {
     }
     try {
       const res = await axios.post(
-        `https://deploy-practiwiz.azurewebsites.net/api/recruiter/create-job-post/${userEmail}`,
+        `http://localhost:1337/api/recruiter/create-job-post/${userEmail}`,
         { newData, selectedOption, jobDescription }
       );
       if (res.data.success) {

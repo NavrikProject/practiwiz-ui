@@ -72,7 +72,7 @@ const ActivateAccountPage = () => {
     event.preventDefault();
     try {
       const res = await axios.post(
-        `https://deploy-practiwiz.azurewebsites.net/api/auth/email-account-activate/${params.id}`,
+        `http://localhost:1337/api/auth/email-account-activate/${params.id}`,
         { signUpToken: params.id }
       );
       if (res.data.token) {
