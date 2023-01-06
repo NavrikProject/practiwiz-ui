@@ -40,13 +40,10 @@ const LoginForm = () => {
     dispatch(showLoadingHandler());
     try {
       dispatch(loginStart());
-      const res = await axios.post(
-        "http://localhost:1337/api/auth/login",
-        {
-          data: data,
-          type: type,
-        }
-      );
+      const res = await axios.post("http://localhost:1337/api/auth/login", {
+        data: data,
+        type: type,
+      });
       dispatch(hideLoadingHandler());
       if (res.data.success) {
         dispatch(loginSuccess(res.data.success));
