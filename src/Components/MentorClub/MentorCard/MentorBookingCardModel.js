@@ -13,6 +13,7 @@ import "./MentorCardDate.css";
 import DatePicker from "react-datepicker";
 import LoginModel from "../../Forms/AccountForms/LoginModel";
 import { ModelFixedHeight } from "../../../Components/utils/Model";
+import moment from "moment";
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
@@ -337,11 +338,12 @@ const MentorBookingCardModel = (props) => {
             <div>
               Choose the Date: <br />
               <DatePicker
+                dateFormat="YYYY-MM-DD"
                 required
                 className="form-control"
                 closeOnScroll={true}
                 selected={date}
-                value={date}
+                value={moment(date).format("DD-MMMM-YYYY")}
                 onChange={(date) => setDate(date)}
                 minDate={new Date()}
                 maxDate={new Date(props.sendMentor.mentor_available_end_date)}

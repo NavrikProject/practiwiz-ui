@@ -7,7 +7,6 @@ import Form3 from "../../Forms/ProfileForm/Form3.js";
 import Form4 from "../../Forms/ProfileForm/Form4.js";
 import ImageForm from "../../Forms/ProfileForm/ImageForm.js";
 import GoToTop from "../../GoToTop.js";
-import Model from "./Model.js";
 import {
   DetailsFlex,
   DetailsFlex1,
@@ -215,9 +214,9 @@ const TraineeProfile = () => {
             ""
           )}
           {changePasswordForm ? (
-            <ScrollModel closeScrollModelHandler={showPasswordForm}>
+            <ModelFixedHeight closeModelHandler={showPasswordForm}>
               <Form3 />
-            </ScrollModel>
+            </ModelFixedHeight>
           ) : (
             ""
           )}

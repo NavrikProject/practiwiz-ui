@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../images/practiwiz-logo.png";
 import LoadingSpinner from "../utils/LoadingSpinner.js";
-
+import moment from "moment";
 const CloseButton = styled(AiOutlineClose)`
   font-size: 25px;
   color: #111;
@@ -229,9 +229,7 @@ const TraineeModifyBooking = ({
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
-        } = await axios.get(
-          "http://localhost:1337/api/get-razorpay-key"
-        );
+        } = await axios.get("http://localhost:1337/api/get-razorpay-key");
 
         const options = {
           key: razorpayKey,
@@ -317,7 +315,7 @@ const TraineeModifyBooking = ({
                 className="form-control"
                 closeOnScroll={true}
                 selected={date}
-                value={date}
+                value={moment(date).format("DD-MMMM-YYYY")}
                 onChange={(date) => setDate(date)}
                 minDate={new Date()}
                 maxDate={new Date(newEndDate)}

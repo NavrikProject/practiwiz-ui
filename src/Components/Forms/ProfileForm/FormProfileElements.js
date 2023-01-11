@@ -131,7 +131,6 @@ export const ErrorMessage = styled.p`
   margin: 0 0 10px 10px;
 `;
 export const PwdField = styled.div`
-  height: 50px;
   width: 100%;
   margin-top: 20px;
   position: relative;
