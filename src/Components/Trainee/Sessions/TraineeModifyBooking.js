@@ -233,7 +233,7 @@ const TraineeModifyBooking = ({
 
         const options = {
           key: razorpayKey,
-          amount: amount.toString(),
+          amount: amount?.toString(),
           currency: currency,
           name: "Navrik Software Solutions",
           description: "Paying for the mentor",
@@ -266,9 +266,9 @@ const TraineeModifyBooking = ({
             }
           },
           prefill: {
-            name: "example name",
-            email: "email@example.com",
-            contact: "111111",
+            name: user?.firstname + " " + user?.lastname,
+            email: user?.email,
+            contact: "",
           },
           theme: {
             color: "#80c0f0",

@@ -22,7 +22,7 @@ const MentorCardSkelton = () => {
             <div className="mentorSlotDiv">
               <ul>
                 <li>
-                  <p className="filterInMentorCard">
+                  <div className="filterInMentorCard">
                     <div
                       className="mentorDescP skeleton"
                       style={{ width: "40%" }}
@@ -36,17 +36,17 @@ const MentorCardSkelton = () => {
                     >
                       <div className="skelton-text"></div>
                     </div>
-                  </p>
+                  </div>
                 </li>
                 <li>
-                  <p style={{ marginLeft: "30px", textAlign: "left" }}>
+                  <div style={{ marginLeft: "30px", textAlign: "left" }}>
                     <div
                       className="mentorDescP skeleton"
                       style={{ width: "40%" }}
                     >
                       <div className="skelton-text"></div>
                     </div>
-                  </p>
+                  </div>
                   <div className="mentorCategoryDiv">
                     <div
                       className="mentorDescP skeleton"
