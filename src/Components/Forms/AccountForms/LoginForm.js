@@ -109,7 +109,7 @@ const LoginForm = () => {
                   {error ? <p className="res-errorlog">{error}</p> : null}
                   <ul className="login-tab">
                     <li
-                      className={activeState.trainee === true && "active"}
+                      className={activeState.trainee === true ? "active" : " "}
                       onClick={() => {
                         setActiveState({ trainee: true });
                         setType("member");
@@ -127,7 +127,7 @@ const LoginForm = () => {
                       <a>Trainer</a>
                     </li> */}
                     <li
-                      className={activeState.mentor === true && "active"}
+                      className={activeState.mentor === true ? "active" : " "}
                       onClick={() => {
                         setActiveState({ mentor: true });
                         setType("mentor");
@@ -147,7 +147,9 @@ const LoginForm = () => {
                       <a>Job-Seeker</a>
                     </li>
                     <li
-                      className={activeState.recruiter === true && "active"}
+                      className={
+                        activeState.recruiter === true ? "active" : " "
+                      }
                       onClick={() => {
                         setActiveState({ recruiter: true });
                         setType("recruiter");

@@ -32,7 +32,7 @@ const ImageForm = (props) => {
     const res = await axios.put(
       user?.type === "member"
         ? `http://localhost:1337/api/member/profile/image/upload/${user?.id}`
-        : `http://localhost:1337/api/${user?.type}/profile/image/up/${user?.id}`,
+        : `http://localhost:1337/api/${user?.type}/profile/image/upload/${user?.id}`,
       data,
       {
         headers: { authorization: "Bearer " + token },
